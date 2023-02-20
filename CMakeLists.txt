@@ -59,6 +59,5 @@ include("cmake/mpInstall.cmake")
 
 if(BOOST_MP_ENABLE_STYLE)
   include("cmake/mpStyleTarget.cmake")
+  mp_create_style_target(style)
 endif()
-
-mp_create_style_target(style)
