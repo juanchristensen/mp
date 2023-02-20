@@ -14,6 +14,7 @@ project(
 option(BOOST_MP_BUILD_EXAMPLES "Build the examples" OFF)
 option(BOOST_MP_BUILD_TESTS "Build the tests" OFF)
 option(BOOST_MP_DISABLE_MODULE "Disable mp module" OFF)
+option(BOOST_MP_DISABLE_STYLE "Disable the style executable" ON)
 
 if(PROJECT_IS_TOP_LEVEL)
   option(CMAKE_CXX_EXTENSIONS "Default value for CXX_EXTENSIONS target property." OFF)
@@ -55,5 +56,9 @@ if(BOOST_MP_BUILD_TESTS)
 endif()
 
 include("cmake/mpInstall.cmake")
-include("cmake/mpStyleTarget.cmake")
+
+if(BOOST_MP_DISABLE_STYLE)
+  include("cmake/mpStyleTarget.cmake")
+endif()
+
 mp_create_style_target(style)
